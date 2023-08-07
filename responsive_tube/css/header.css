@@ -1,0 +1,101 @@
+.header {
+  position: fixed;
+  /* 위 속성을 통해서 헤더를 위치 고정시킬 수 있다. */
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #fff;
+  box-shadow: 0 0 3px #000;
+  z-index: 20;
+  /* 이 z-index는 다른 요소와 겹쳤을 때 더 높은 위치에서 보여지도록 하는 것이다. */
+}
+.header__wrapper {
+  display: flex;
+  /* 이 속성이 flex로 지정되면 요소가 가로로 1차원으로 정렬된다. */
+  align-items: center;
+  /* 이 속성은 세로축에서의 정렬 방법이다.  */
+  justify-content: space-between;
+  /* 이 속성은 가로축에서의 정렬 방법이다. */
+  height: 60px;
+  padding: 0 16px;
+  /* 위 아래로는 padding이 0이고 좌우로는 16px 이다. */
+}
+.header__start {
+  height: 40px;
+  line-height: 40px;
+}
+.header__hamburger {
+  border: none;
+  background-color: transparent;
+  font-size: 1.5rem;
+}
+.header__title {
+  font-size: 1.2rem;
+  margin-left: 6px;
+}
+
+.header__center {
+  /* 이 속성은 입력창이 브라우저 크기에 따라 위치가 바뀌지 않도록 한 것이다. */
+  width: 50%;
+}
+.header__form {
+  /* 이 속성은 입력창 전체의 크기를 가변적으로 바뀌게 한 것이다. */
+  display: flex;
+  max-width: 100%;
+}
+.header__input--text {
+  /* 이 속성은 실질적으로 입력이 들어가는 곳의 크기를 가변적으로 만든 것이다. */
+  width: calc(100% - 60px);
+  height: 40px;
+  padding: 0 6px;
+  border: 1px solid #8f8f8f;
+  border-right: none;
+  border-radius: 2px 0 0 2px;
+}
+.header__input--button {
+  /* 이 속성은 실질적으로 입력 버튼 부분의 크기를 가변적으로 만든 것이다. */
+  width: 60px;
+  height: 40px;
+  border: 1px solid #8f8f8f;
+  border-left: none;
+  border-radius: 0 2px 2px 0;
+}
+
+.header__end {
+  display: flex;
+}
+.header__search {
+  /* 햄버거 아이콘과 비슷하게 처리하면 된다. */
+  display: none;
+  /* 처음에는 돋보기 아이콘이 안보이다가 뷰포트 크기가 커짐에 따라 
+  해당 아이콘이 보여야 하므로 초기값을 none으로 두어야 한다.*/
+  margin-right: 5px;
+  border: none;
+  background-color: transparent;
+  font-size: 1.5rem;
+}
+.header__profile {
+  width: 40px;
+  height: 40px;
+  border: 1px solid #eaeaea;
+  border-radius: 50%;
+  background-color: tomato;
+  /* background-image: url(../imgs/1.png);
+  background-size: 40px 40px; */
+}
+
+@media screen and (max-width: 800px) {
+  /* 800px보다 화면이 작을 때는 header_title을 안보이게 한다. */
+  .header__title {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .header__center {
+    display: none;
+  }
+  .header__search {
+    display: block;
+  }
+}
